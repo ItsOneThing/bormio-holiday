@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#132e32" />
+<title>Bormio 冬日周末 · 2026.12.11–13</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script>if(!window.L){document.write('<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"><\/script>')}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
+<style>
+:root{--ink:#14243b;--muted:#586a80;--snow:#f4f7fa;--white:#fff;--sky:#e0ebf5;--line:#dbe4ed;--red:#d6402c;--blue:#2c6cb0;--green:#2f8a67;--gold:#b78630;--night:#10223d;--radius:16px;--shadow:0 1px 2px rgba(16,34,61,.05),0 10px 26px -14px rgba(16,34,61,.22);--disp:"Fraunces",Georgia,"Songti SC","Noto Serif CJK SC",serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
+body{margin:0;background:var(--snow);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}:focus-visible{outline:3px solid #7fb2e5;outline-offset:2px}
+.wrap{width:min(1120px,calc(100% - 32px));margin:auto}
+.hero{position:relative;overflow:hidden;color:#fff;padding:64px 0 140px;background:radial-gradient(circle at 80% 82%,#f6cfb8 0,rgba(246,207,184,0) 36%),linear-gradient(180deg,#0f2342 0%,#27507f 58%,#6590ba 100%)}
+.hero .wrap{position:relative;z-index:1}.ridge{position:absolute;left:0;bottom:-1px;width:100%;height:120px;display:block}
+.eyebrow{font-size:13px;letter-spacing:.04em;color:#cfe0f1;font-weight:600}
+.hero h1{font-family:var(--disp);font-weight:600;font-size:clamp(40px,7vw,78px);line-height:1.05;letter-spacing:-.02em;margin:12px 0 14px}
+.hero p{max-width:640px;color:#e4eef8;font-size:16px;margin:0 0 24px}
+.hero-meta{display:flex;gap:8px;flex-wrap:wrap}.pill{display:inline-flex;align-items:center;gap:7px;border:1px solid rgba(255,255,255,.28);background:rgba(16,34,61,.28);backdrop-filter:blur(6px);border-radius:999px;padding:7px 13px;font-size:13px;color:#fff}
+.nav{position:sticky;top:0;z-index:20;background:rgba(244,247,250,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:4px;overflow:auto;padding:9px 0;white-space:nowrap;scrollbar-width:none}.nav .wrap::-webkit-scrollbar{display:none}
+.nav a{font-size:13px;font-weight:600;color:var(--muted);padding:6px 13px;border-radius:999px}.nav a:hover{background:var(--sky);text-decoration:none}.nav a.on{background:var(--ink);color:#fff}
+main{padding:12px 0 70px}.section{margin:40px 0}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:16px}
+.section h2{font-size:26px;line-height:1.25;letter-spacing:-.01em;margin:0}.section-head p{margin:5px 0 0;color:var(--muted);font-size:13.5px;max-width:640px}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}.card h3{margin:10px 0 6px;font-size:17px;line-height:1.35}
+.span-4{grid-column:span 4}.span-5{grid-column:span 5}.span-6{grid-column:span 6}.span-7{grid-column:span 7}.span-8{grid-column:span 8}.span-12{grid-column:span 12}
+.glance{gap:0;background:#fff;border:1px solid var(--line);border-radius:20px;box-shadow:var(--shadow);overflow:hidden}.glance .card{border:0;border-radius:0;box-shadow:none;border-right:1px solid var(--line);padding:22px 24px}.glance .card:last-child{border-right:0}
+.stat,.price,.result strong{font-family:var(--disp);font-weight:600}.stat{font-size:32px;line-height:1.2;letter-spacing:-.01em}.price{font-size:32px;line-height:1.2;margin:8px 0 4px}
+.muted{color:var(--muted)}.small{font-size:12.5px;color:var(--muted)}
+.tag{display:inline-block;font-size:12px;font-weight:700;border-radius:999px;background:#dcebf8;color:#21507f;padding:3px 10px}.tag.gold{background:#f7ecd6;color:#7b5718}.tag.blue{background:#dff1e9;color:#1f6a4d}
+.icon{font-size:24px;margin:10px 0 4px}.list{padding-left:19px;margin:9px 0}.list li{margin:7px 0}
+.table{width:100%;border-collapse:collapse;font-size:14px;margin:8px 0}.table th,.table td{padding:10px 8px;border-bottom:1px solid var(--line);text-align:left}.table th{font-size:12px;font-weight:700;color:var(--muted)}.table td:last-child,.table th:last-child{text-align:right}
+.timeline{display:grid;grid-template-columns:84px 1fr;gap:10px;padding:12px 0}.time{font-weight:700;color:var(--red);font-size:13px;padding-top:2px}
+.timeline>div:last-child{position:relative;padding:0 0 4px 18px;border-left:2px solid var(--sky)}.timeline>div:last-child:before{content:"";position:absolute;left:-6px;top:6px;width:10px;height:10px;border-radius:50%;background:#fff;border:2px solid var(--red)}
+.timeline h3{margin:0 0 3px;font-size:15px}.timeline p{margin:0;color:var(--muted);font-size:13px}
+#plan .span-4{border-top:5px solid var(--blue)}#plan .span-4:nth-child(2){border-top-color:var(--red)}#plan .span-4:nth-child(3){border-top-color:var(--ink)}
+#plan .span-4>.tag{background:var(--blue);color:#fff}#plan .span-4:nth-child(2)>.tag{background:var(--red)}#plan .span-4:nth-child(3)>.tag{background:var(--ink)}
+.calc{background:linear-gradient(160deg,#10223d,#1d3f68);color:#fff;border:0}.calc .muted,.calc .small{color:#b9cde3}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 24px}.field{display:flex;flex-direction:column;gap:6px}.field label{font-size:13px;color:#d5e4f3;font-weight:600}
+.field input,.field select{width:100%;border:1px solid rgba(255,255,255,.2);background:#f7fafd;color:var(--night);border-radius:10px;padding:11px 12px;font:inherit;font-size:16px}
+.checkrow{display:flex;align-items:center;gap:10px;font-size:14px;color:#e3eefa;margin:12px 0;cursor:pointer}.checkrow input{width:18px;height:18px;accent-color:#f0b49f}
+.result{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:18px 20px;margin-top:18px}.result strong{font-size:44px;line-height:1.1;display:block}.result .sub{font-size:13px;color:#bfd3e8}#perPerson{font-size:16px!important;color:#fff!important;font-weight:600}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:13px}
+.btn{display:inline-flex;align-items:center;justify-content:center;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:13px;font-weight:700;border:0;cursor:pointer;font-family:inherit}.btn:hover{text-decoration:none;background:#223a5c}.btn.light{background:#dcebf8;color:#21507f}.btn.light:hover{background:#cde1f3}.btn.outline{background:transparent;border:1px solid #b6c5d5;color:var(--ink)}
+.warning{border-left:4px solid var(--gold);background:#fbf5e8;padding:13px 16px;border-radius:0 12px 12px 0;font-size:13.5px;color:#6b5126}
+.source-list{padding-left:19px}.source-list li{margin:10px 0;font-size:14px}
+.maplink{display:inline-block;margin:8px 6px 0 0;border:1px solid var(--line);background:#fff;padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600}.maplink:hover{background:var(--sky);text-decoration:none}
+.footer{background:var(--night);padding:28px 0;color:#a9bdd3;font-size:12.5px}.footer b{color:#fff}.footer .btn.outline{border-color:#5f7896;color:#fff}.footgrid{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.mapbox{display:grid;grid-template-columns:230px 1fr;gap:14px;align-items:start}
+.placelist{display:flex;flex-direction:column;gap:6px}.place{display:flex;align-items:center;gap:10px;text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer;line-height:1.3}.place:hover{border-color:#9db8d3}.place small{display:block;color:var(--muted);font-size:12px}.place .e{font-size:20px}
+.place.on{background:var(--ink);color:#fff;border-color:var(--ink)}.place.on small{color:#bcd0e5}
+.mapstage{border-radius:var(--radius);overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#e6eef5}.mapstage iframe{display:block;width:100%;height:460px;border:0}
+.mapinfo{background:#fff;padding:14px 18px;font-size:13.5px;display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap}.mapinfo .maplink{margin:0;background:var(--ink);color:#fff;border-color:var(--ink)}
+.mapactions{display:flex;gap:6px;flex-wrap:wrap}
+.credit{margin:4px 0 0;font-size:11.5px;line-height:1.5;color:var(--muted)}
+@media print{.credit{display:none!important}}
+@media(max-width:760px){.hero{padding:44px 0 120px}.span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12}.calc-grid{grid-template-columns:1fr}.section-head{display:block}.section-head .btn,.section-head .tag{margin-top:10px}.timeline{grid-template-columns:70px 1fr}.card{padding:18px}.table{font-size:13px}.wrap{width:min(100% - 24px,1120px)}.glance .card{border-right:0;border-bottom:1px solid var(--line)}.glance .card:last-child{border-bottom:0}
+.mapbox{grid-template-columns:1fr}.placelist{flex-direction:row;overflow:auto;padding-bottom:4px;scrollbar-width:none}.place{flex:none}.mapstage iframe{height:340px}.result strong{font-size:38px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media print{.nav,.btn,.calc input,.calc select,.ridge,.mapbox{display:none!important}.hero{background:#10223d!important;print-color-adjust:exact;padding-bottom:40px}.card{box-shadow:none;break-inside:avoid}body{background:white}.section{break-inside:avoid}}
+.maptabs{display:inline-flex;background:#e3ebf3;border-radius:999px;padding:3px;margin-bottom:12px}.mt{border:0;background:none;font:inherit;font-size:13px;font-weight:700;color:var(--muted);padding:6px 16px;border-radius:999px;cursor:pointer}.mt.on{background:var(--ink);color:#fff}
+.mapstage svg{display:block;width:100%;height:auto}.pin{cursor:pointer;font-family:inherit}.pin:focus{outline:none}.pin:focus circle,.pin:hover circle{stroke:#14243b}.lbl{font:700 13px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#14243b;paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+@media print{.maptabs{display:none!important}}
+#leaf{position:relative;z-index:0;isolation:isolate;width:100%;height:460px;background:#e6eef5}.mk{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:17px;border:3px solid #fff;box-shadow:0 2px 8px rgba(16,34,61,.35)}.leaflet-popup-content{font:13.5px/1.5 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;margin:12px 14px}
+.mapstage{position:relative}
+.basemaps{position:absolute;top:10px;right:10px;z-index:800;display:none;gap:2px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:12px;padding:4px;box-shadow:var(--shadow)}
+.mapstage.live .basemaps{display:flex}
+.bm{border:0;background:none;font:inherit;font-size:12px;font-weight:700;color:var(--muted);padding:6px 10px;border-radius:8px;cursor:pointer;white-space:nowrap}.bm:hover{background:var(--sky)}.bm.on{background:var(--ink);color:#fff}
+.basemaps .bm:focus-visible{outline-offset:1px}
+@media print{.basemaps{display:none!important}}
+@media(max-width:760px){#leaf{height:340px}}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="wrap">
+  <div class="eyebrow">A winter weekend in the Italian Alps</div>
+  <h1>Bormio 冬日周末</h1>
+  <p>七个人 · 自驾从米兰出发 · 两天滑雪 + 一次温泉 + 圣诞活动，把时间花在真正值得的体验上。</p>
+  <div class="hero-meta"><span class="pill">📅 2026.12.11 周五 — 12.13 周日</span><span class="pill">👥 7人</span><span class="pill">🚗 自驾 · 约3–3.5小时单程（路况视情况）</span></div>
+ </div>
+<svg class="ridge" viewBox="0 0 1200 120" preserveAspectRatio="none" aria-hidden="true"><path d="M0 70L120 38 210 66 330 20 450 62 560 34 690 72 800 28 930 64 1050 40 1200 76V120H0Z" fill="#10223d" opacity=".3"/><path d="M0 98L90 78 200 96 340 60 470 94 600 70 740 100 880 66 1010 92 1120 74 1200 92V120H0Z" fill="#f4f7fa"/></svg>
+</header>
+<nav class="nav"><div class="wrap"><a href="#map">地图</a><a href="#budget">费用计算器</a><a href="#ski">滑雪价格</a><a href="#therme">温泉</a><a href="#plan">三天安排</a><a href="#nearby">附近活动</a><a href="#food">餐厅</a><a href="#addresses">项目地址</a><a href="#links">预订与链接</a></div></nav>
+<main class="wrap">
+ <section class="section">
+  <div class="grid glance">
+   <div class="card span-4"><span class="tag">核心计划</span><div class="icon">⛷️</div><div class="stat">2天滑雪</div><div class="muted">12月11日 + 12月12日</div></div>
+   <div class="card span-4"><span class="tag">温泉</span><div class="icon">♨️</div><div class="stat">€30/人</div><div class="muted">Bormio Terme · 2.5小时</div></div>
+   <div class="card span-4"><span class="tag">圣诞活动</span><div class="icon">🎄</div><div class="stat">圣诞集市</div><div class="muted">Bormio · 12月11–13日</div></div>
+  </div>
+ </section>
+ <section class="section" id="map">
+  <div class="section-head"><div><h2>地图：我们要去的地方</h2><p>点地图上的图标或左侧地点查看详情，再点下方的 Google / Apple 地图链接导航（国内打不开 Google 就用 Apple 地图）。</p></div><a class="btn light" href="https://www.google.com/maps/dir/Milano/Bormio/" target="_blank" rel="noopener">米兰 → Bormio 路线 ↗</a></div>
+  <div class="maptabs"><button type="button" class="mt on" data-v="m">实时地图</button><button type="button" class="mt" data-v="t">小镇示意图</button><button type="button" class="mt" data-v="r">周边示意图</button></div>
+  <div class="mapbox"><div class="placelist" id="placeList"></div><div class="mapstage"><div id="leaf" role="application" aria-label="Bormio 实时地图"></div><svg id="mapSvg" viewBox="0 0 800 520" role="img" aria-label="Bormio 示意地图"></svg><div class="basemaps" id="basemaps" role="group" aria-label="底图切换"><button type="button" class="bm on" data-k="piste">雪道</button><button type="button" class="bm" data-k="street">街道</button><button type="button" class="bm" data-k="topo">地形</button><button type="button" class="bm" data-k="sat">卫星</button></div><div class="mapinfo" id="mapInfo"></div></div></div>
+  <p class="small" style="margin-top:10px" id="mapHelp">底图全部免费、不需要 API key：OpenStreetMap 雪道风格 / 街道 / OpenTopoMap 地形 / Esri 卫星，右上角可切换（默认显示雪道和缆车）。地点坐标已内置在页面里，不联网定位、不调用任何需要付费或注册的接口。如果底图打不开（网络限制），点“小镇示意图”看离线版本。</p>
+  <p class="credit" id="mapCredit"></p>
+ </section>
+ <section class="section" id="budget">
+  <div class="section-head"><div><h2>七人费用计算器</h2><p>默认按7位成人、两天三星级雪具估算。可以修改人数和可选活动，金额会自动更新。</p></div><span class="tag gold">不含住宿 / 餐饮 / 油费 / 过路费</span></div>
+  <div class="card calc">
+   <div class="calc-grid">
+    <div>
+     <div class="field"><label for="people">人数</label><input id="people" type="number" min="1" max="30" value="7"></div>
+     <div class="field" style="margin-top:12px"><label for="pass">两日成人 Skipass / 人（€）</label><input id="pass" type="number" min="0" step="1" value="78"></div>
+     <div class="field" style="margin-top:12px"><label for="gear">雪板 + 雪鞋 + 雪杖 / 天 / 人（€）</label><input id="gear" type="number" min="0" step="1" value="27"></div>
+     <div class="field" style="margin-top:12px"><label for="days">租赁天数</label><select id="days"><option value="2" selected>2天</option><option value="1">1天</option></select></div>
+    </div>
+    <div>
+     <div class="field"><label for="helmet">头盔 / 天 / 人（€）</label><input id="helmet" type="number" min="0" step="1" value="5"></div>
+     <div class="field" style="margin-top:12px"><label for="spa">温泉选择</label><select id="spa"><option value="0">不去温泉 (€0)</option><option value="30" selected>2.5小时 (€30/人)</option><option value="35">全天 (€35/人)</option></select></div>
+     <label class="checkrow"><input id="skate" type="checkbox"> 加入冰场：门票€7 + 冰鞋€3 / 人</label>
+     <label class="checkrow"><input id="goggles" type="checkbox"> 两天租滑雪镜：€4/天/人</label>
+     <label class="checkrow"><input id="market" type="checkbox" checked disabled> 圣诞集市及老城区</label>
+    </div>
+   </div>
+   <div class="result">
+    <div class="sub">预计团体总额</div><strong id="total">€1,204</strong>
+    <div class="sub" id="perPerson">约 €172 / 人</div>
+    <div class="sub" id="breakdown" style="margin-top:9px">滑雪票 €546 · 雪具 €378 · 头盔 €70 · 温泉 €210</div>
+   </div>
+   <p class="small" style="margin:13px 0 0">计算说明：雪具按已公开的单日价乘以租赁天数；Skipass 按官方低季成人两日票表价€78估算。官方线上票价有动态优惠/变化，最终以结算页面为准。未包含泳帽、毛巾租赁、餐饮、住宿、油费、过路费、停车及滑雪服。</p>
+  </div>
+ </section>
+ <section class="section" id="ski">
+  <div class="section-head"><div><h2>滑雪：12月11–12日</h2><p>两个日期处于官方低季区间 4–18 December 2026。</p></div><a class="btn" href="https://www.bormioski.eu/en/bormio-skipass/" target="_blank" rel="noopener">官方 Skipass 价格 ↗</a></div>
+  <div class="grid">
+   <div class="card span-7">
+    <span class="tag">成人 · 官方价目表列价</span><div class="price">€78 <span class="muted" style="font-size:14px;font-weight:500">/ 两日连续票 / 人</span></div>
+    <table class="table"><thead><tr><th>票种</th><th>成人</th><th>Junior</th><th>Senior</th></tr></thead><tbody>
+     <tr><td>2日连续票（3个雪区）</td><td>€78</td><td>€39</td><td>€72</td></tr><tr><td>1日票（单一雪区）</td><td>€40</td><td>€20</td><td>€40</td></tr>
+    </tbody></table>
+    <p class="small">分类：成人出生年份1963–2010；Junior 2011–2018；Senior ≤1962。2019年及以后出生的 Baby pass，在购买同日数成人票时符合免费规则（一名付费成人对应一名儿童）。七人团按成人计算。</p>
+    <div class="warning" style="margin-top:14px">注意：官方页面指出 Skipass 线上动态定价，提前购买可能更便宜；€78是低季价目表列价，实际支付请在购票结算页确认。两日票覆盖 Bormio、Santa Caterina、Cima Piazzi 三个雪区；但 Cima Piazzi 计划到12月19日才开放，因此本次重点选 Bormio 和 Santa Caterina。</div>
+   </div>
+   <div class="card span-5">
+    <span class="tag">雪具租赁</span><div class="price">€27 <span class="muted" style="font-size:14px;font-weight:500">/ 天</span></div>
+    <p>三星级雪板 + 雪鞋，雪杖包含在内。头盔另加€5/天；滑雪镜€4/天（可自带）。</p>
+    <table class="table"><tbody><tr><td>雪板 + 雪鞋（2天）</td><td>€54</td></tr><tr><td>头盔（2天）</td><td>€10</td></tr><tr><td><b>每人两日装备</b></td><td><b>€64</b></td></tr></tbody></table>
+    <p class="small">7人两天雪板/雪鞋：€378；头盔：€70。按公布的单日价格估算，预订时确认两日租赁总价和尺码库存。</p>
+    <a class="btn light" href="https://bormio.bookyourrent.com/en/ski/rental-pricelist.html" target="_blank" rel="noopener">租赁价格及预约 ↗</a>
+   </div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+   <div class="card span-6"><h3>12月11日 · Bormio</h3><p class="muted">建议第一天在 Bormio 主雪区熟悉雪道、完成热身。团里若有初学者，可先在初级区域活动；按当天开放雪道和大家水平决定路线。</p></div>
+   <div class="card span-6"><h3>12月12日 · Santa Caterina（备选）</h3><p class="muted">如果大家水平合适、雪况好，可以换到 Santa Caterina。Bormio Skipass 持有人可使用雪区间免费滑雪巴士。若不想折腾，两天都留在 Bormio 也完全可以。</p></div>
+  </div>
+ </section>
+ <section class="section" id="therme">
+  <div class="section-head"><div><h2>温泉：12月13日</h2><p>选 Bormio Terme，而不是 QC Bagni Vecchi / Bagni Nuovi。</p></div><a class="btn" href="https://www.bormioterme.it/tariffe/tariffe-benessere-e-thermarium/" target="_blank" rel="noopener">官方温泉价目 ↗</a></div>
+  <div class="grid">
+   <div class="card span-5"><span class="tag">推荐 · 2.5小时</span><div class="price">€30 <span class="muted" style="font-size:14px;font-weight:500">/ 成人</span></div><p>7人合计€210。室内外温泉池、放松区及水滑梯等设施。</p></div>
+   <div class="card span-7"><h3>入场前要知道</h3><ul class="list"><li>2.5小时票：成人€30；全天成人票：€35。</li><li>入场不接受预约，达到容量上限时可能需要等候或无法进入。</li><li>泳帽必须佩戴；可自带毛巾，也可以询问现场租赁。</li><li>官方列出的 Wellness Area 通常营业时间为10:00–20:00；出发前请再次确认当日公告。</li></ul><p class="small">建议周日14:00左右到，预留候场时间；如果排队较长，可以改逛圣诞集市后再决定。</p></div>
+  </div>
+ </section>
+ <section class="section" id="plan">
+  <div class="section-head"><div><h2>三天行程</h2><p>时间为建议安排；雪场开放、天气及实际路况可能改变节奏。</p></div></div>
+  <div class="grid">
+   <div class="card span-4">
+    <span class="tag">星期五 · 11 Dec</span><h3>米兰出发 + 滑雪 Day 1</h3>
+    <div class="timeline"><div class="time">05:00</div><div><h3>米兰出发</h3><p>建议早点走。自驾单程预留约3–3.5小时以上，另加休息与冬季路况缓冲。</p></div></div>
+    <div class="timeline"><div class="time">08:30</div><div><h3>取装备 / Skipass</h3><p>Bormio Ski & Bike，Via Btg. Morbegno 7。</p></div></div>
+    <div class="timeline"><div class="time">09:00–16:00</div><div><h3>Bormio 滑雪</h3><p>按实际缆车开放时间调整；午餐尽量简餐，节省时间。</p></div></div>
+    <div class="timeline"><div class="time">16:30–19:00</div><div><h3>圣诞集市 + 老城区</h3><p>集市在 Piazza V Alpini；官方日期包含12月11日，营业10:30–19:00。</p></div></div>
+   </div>
+   <div class="card span-4">
+    <span class="tag">星期六 · 12 Dec</span><h3>滑雪 Day 2 + 圣诞氛围</h3>
+    <div class="timeline"><div class="time">08:30</div><div><h3>早餐后出发</h3><p>检查 Bormio / Santa Caterina 实时雪道与缆车状态。</p></div></div>
+    <div class="timeline"><div class="time">09:00–16:00</div><div><h3>第二天滑雪</h3><p>雪况好且大家水平允许时去 Santa Caterina；否则继续 Bormio。</p></div></div>
+    <div class="timeline"><div class="time">16:00–18:30</div><div><h3>圣诞活动</h3><p>可去圣诞集市；也可看 Museo Civico 手工 Nativity Scenes 展览，周六15:30–18:30。</p></div></div>
+    <div class="timeline"><div class="time">晚上</div><div><h3>晚餐 / 休息</h3><p>小红书推荐：Osteria la Bajona、Ristorante Da Riccardo（见“餐厅推荐”），建议提前订位。早点休息，为周日返程留出体力。</p></div></div>
+   </div>
+   <div class="card span-4">
+    <span class="tag">星期日 · 13 Dec</span><h3>小镇 + 温泉 + 回米兰</h3>
+    <div class="timeline"><div class="time">10:00–12:00</div><div><h3>老城区 / 展览</h3><p>周日 Presepi al Museo 展览时间10:30–12:30；圣诞集市也开放。</p></div></div>
+    <div class="timeline"><div class="time">14:00–16:30</div><div><h3>Bormio Terme</h3><p>2.5小时票€30/人，7人€210；不预约，注意现场容量。</p></div></div>
+    <div class="timeline"><div class="time">17:00左右</div><div><h3>开车回米兰</h3><p>单程再预留约3–3.5小时以上；如遇降雪或交通拥堵应更早出发。</p></div></div>
+   </div>
+  </div>
+ </section>
+ <section class="section" id="nearby">
+  <div class="section-head"><div><h2>附近值得去的活动</h2><p>山区冬季道路与步道状态请当天确认。</p></div></div>
+  <div class="grid">
+   <div class="card span-6"><span class="tag">12月11–13日</span><h3>🎄 Bormio 圣诞集市</h3><p>地点：Giardini di Piazza V Alpini。12月11、12、13日均开放，官方时段10:30–19:00。可以买热饮和小吃，但消费自理。</p><a class="btn light" href="https://www.bormio.eu/en/eventi/experience/christmas-markets-in-bormio" target="_blank" rel="noopener">官方活动信息 ↗</a></div>
+   <div class="card span-6"><span class="tag">12月1日–2027年1月6日</span><h3>🕯️ Museo Civico 手工圣诞马槽展</h3><p>周日开放10:30–12:30；周一至周六15:30–18:30。12月12日周六滑雪后可以赶15:30–18:30时段，若来不及就放到周日早上。</p><a class="btn light" href="https://www.bormio.eu/en/eventi/experience/presepi-al-museo" target="_blank" rel="noopener">官方活动信息 ↗</a></div>
+   <div class="card span-4"><h3>🏘️ Bormio 老城区</h3><p>散步、看中世纪街巷、广场和建筑。可以与圣诞集市合并安排。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piazza+Cavour+Bormio">地图导航 ↗</a></div>
+   <div class="card span-4"><h3>🏔️ Santa Caterina Valfurva</h3><p>山间村落和雪山景色，距 Bormio 约20分钟车程的参考值；有雪/冰路时需放慢速度。可以顺便作为第二天滑雪目的地。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Bormio/Santa+Caterina+Valfurva/">路线 ↗</a></div>
+   <div class="card span-4"><h3>🌲 Valdidentro / Isolaccia</h3><p>附近山谷村落，可短暂停留拍照、喝咖啡。建议先看天气和道路状态，不把未经确认的高山湖路段当作必去点。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/Bormio/Isolaccia/">路线 ↗</a></div>
+   <div class="card span-6"><span class="tag blue">可选 · 约€10/人</span><h3>⛸️ Bormio 室内冰场</h3><p>成人入场€7，冰鞋租赁€3，合计约€10/人；7人约€70。冰场计划于2026年12月重新开放，但具体开放时段需查看当周日历或电话确认。</p><a class="btn light" href="https://ktips.bormio.eu/en/importazioni/servizi/palaghiaccio-bormio" target="_blank" rel="noopener">官方开放信息 ↗</a></div>
+   <div class="card span-6"><span class="tag gold">不建议本次安排</span><h3>⚠️ Cima Piazzi Family Bob / Lago di Cancano / Stelvio Pass</h3><p>Family Bob 预计12月18/19日才开始开放；Cancano 山湖道路及 Stelvio 山口冬季通行不确定或季节性关闭。不要把它们列为12月11–13日的确定项目。</p></div>
+  </div>
+ </section>
+
+ <section class="section" id="food">
+  <div class="section-head"><div><h2>餐厅推荐</h2><p>小红书上推荐的两家，都在 Bormio。建议出发前先订位，或电话确认营业时间。</p></div></div>
+  <div class="grid">
+   <div class="card span-6"><span class="tag">小红书推荐 · 晚餐</span><h3>🍷 Osteria la Bajona</h3><p class="muted">在老城区 Piazza Cavour，可以和圣诞集市、老城散步安排在同一个傍晚。</p><p><b>Piazza Cavour 15, 23032 Bormio (SO), Italy</b><br>电话：+39 327 924 7667</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osteria+la+Bajona%2C+Piazza+Cavour+15%2C+Bormio">导航到餐厅 ↗</a><a class="maplink" target="_blank" rel="noopener" href="http://www.bajona.it/">餐厅官网 ↗</a></div>
+   <div class="card span-6"><span class="tag">小红书推荐 · 午餐 / 晚餐</span><h3>🍽️ Ristorante Da Riccardo</h3><p class="muted">位于 Albergo San Lorenzo 内。Bormio 旅游局页面列出的时间：午餐 12:30–13:30，晚餐 19:30–21:30。无麸质、无乳糖和素食菜品需提前告知。</p><p><b>Via San Lorenzo 2, 23032 Bormio (SO), Italy</b><br>地图上可能出现同名的其他店，请认准这个地址。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Da+Riccardo%2C+Via+San+Lorenzo+2%2C+Bormio">导航到餐厅 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://ktips.bormio.eu/en/importazioni/ristoranti/da-riccardo-c-o-albergo-san-lorenzo">官方介绍 ↗</a></div>
+  </div>
+ </section>
+ <section class="section" id="addresses">
+  <div class="section-head"><div><h2>项目地址与导航</h2><p>以下地址可直接复制到导航；建议把7人集合点设为滑雪缆车站附近，租装备后步行去缆车。</p></div><span class="tag">Google Maps</span></div>
+  <div class="grid">
+   <div class="card span-6"><span class="tag">滑雪 · Skipass / 缆车底站</span><h3>Bormio Ski Ticket Office</h3><p><b>Via Battaglion Morbegno 25, 23032 Bormio (SO), Italy</b><br>售票处位于 Bormio–Bormio 2000 缆车底站。官方冬季营业计划为 2026年12月4日至2027年4月11日，每日08:00–17:30。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Battaglion+Morbegno+25%2C+Bormio">导航到售票处 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.bormioski.eu/en/ticket-office/">官方地址 / 营业时间 ↗</a></div>
+   <div class="card span-6"><span class="tag">滑雪装备租赁</span><h3>Bormio Ski & Bike · Funivie Shop</h3><p><b>Via Battaglion Morbegno 7, 23032 Bormio (SO), Italy</b><br>电话：+39 0342 901698。靠近缆车底站，适合先取雪具再去滑雪。7人建议提前预订并提供鞋码、身高、体重和滑雪水平。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Battaglion+Morbegno+7%2C+Bormio">导航到租赁店 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://bormio.bookyourrent.com/en/ski/rental-pricelist.html">租赁价格 / 预约 ↗</a></div>
+   <div class="card span-6"><span class="tag">温泉 · 12月13日</span><h3>Bormio Terme</h3><p><b>Via Stelvio 14, 23032 Bormio (SO), Italy</b><br>电话：+39 0342 901325。2.5小时成人票按€30/人计算；请出发前核对当天价格、营业时间及泳帽要求。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Stelvio+14%2C+Bormio">导航到温泉 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.bormioterme.it/en/how-to-reach-us.html">官方交通 / 联系方式 ↗</a></div>
+   <div class="card span-6"><span class="tag">12月11–13日</span><h3>Bormio 圣诞集市</h3><p><b>Giardini di Piazza V Alpini, 23032 Bormio (SO), Italy</b><br>官方活动时间为10:30–19:00，12月11、12、13日均开放。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Giardini+di+Piazza+V+Alpini%2C+Bormio">导航到圣诞集市 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.bormio.eu/en/eventi/experience/christmas-markets-in-bormio">官方活动时间 ↗</a></div>
+   <div class="card span-6"><span class="tag">小镇散步</span><h3>Bormio 老城区 / Piazza Cavour</h3><p><b>Piazza Cavour, 23032 Bormio (SO), Italy</b><br>可从广场步行逛老街、Piazza del Kuerc 和周边历史建筑；适合与圣诞集市安排在同一时段。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Piazza+Cavour%2C+Bormio">导航到老城区中心 ↗</a></div>
+   <div class="card span-6"><span class="tag blue">第二天滑雪备选</span><h3>Santa Caterina Impianti / 缆车区</h3><p><b>Via S. Caterina 39, Località Santa Caterina Valfurva, 23030 Valfurva (SO), Italy</b><br>电话：+39 0342 925116。前往前确认雪道、缆车及停车安排。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Santa+Caterina+39%2C+Santa+Caterina+Valfurva">导航到 Santa Caterina ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.santacaterinaimpianti.it/en/contact-2/">运营方联系方式 ↗</a></div>
+   <div class="card span-6"><span class="tag blue">可选 · 冰壶 / 冰场</span><h3>Bormio Ghiaccio Ice Stadium</h3><p><b>Via Manzoni, 23032 Bormio (SO), Italy</b><br>冰壶场地登记地址为 Via Manzoni；如要参加团体体验，请先联系运营方确认入口、预约时段及7人活动价格。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Via+Manzoni%2C+Bormio">导航到冰场街道 ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.fisg.it/site/bormio-ghiaccio-ice-stadium-curling-curling/?id=143">场馆资料 ↗</a></div>
+   <div class="card span-6"><span class="tag gold">可选</span><h3>Husky Village · Arnoga</h3><p><b>Strada Decauville 9, Località Arnoga, 23038 Valdidentro (SO), Italy</b><br>电话：+39 347 7960309。这里是哈士奇雪橇集合地；价格约€160/人，需预订并确认当天雪况，不列入本次基础方案。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Strada+Decauville+9%2C+Arnoga%2C+Valdidentro">导航到 Husky Village ↗</a><a class="maplink" target="_blank" rel="noopener" href="https://www.huskyvillage.it/en/where-we-are/">官方地址 / 联系方式 ↗</a></div>
+  <div class="card span-6"><span class="tag blue">餐厅 · 小红书推荐</span><h3>Osteria la Bajona</h3><p><b>Piazza Cavour 15, 23032 Bormio (SO), Italy</b><br>电话：+39 327 924 7667。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osteria+la+Bajona%2C+Piazza+Cavour+15%2C+Bormio">导航到 Osteria la Bajona ↗</a></div>
+   <div class="card span-6"><span class="tag blue">餐厅 · 小红书推荐</span><h3>Ristorante Da Riccardo</h3><p><b>Via San Lorenzo 2, 23032 Bormio (SO), Italy</b><br>Albergo San Lorenzo 内。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Da+Riccardo%2C+Via+San+Lorenzo+2%2C+Bormio">导航到 Da Riccardo ↗</a></div>
+  </div>
+  <p class="small" style="margin-top:12px">地址核对说明：滑雪售票处、雪具租赁店、温泉、圣诞集市、Santa Caterina 运营方及 Husky Village 地址来自各自官方页面；冰壶场馆地址来自意大利冰上运动联合会登记。Piazza Cavour 是老城区导航中心点，不是单一景点入口。</p>
+ </section>
+ <section class="section" id="links">
+  <div class="section-head"><div><h2>预订、确认与实用链接</h2><p>建议出发前一周、出发前一天各核对一次。</p></div></div>
+  <div class="card">
+   <ul class="source-list">
+    <li><b>Skipass 官方价目与购票：</b> <a href="https://www.bormioski.eu/en/bormio-skipass/" target="_blank" rel="noopener">bormioski.eu</a></li>
+    <li><b>实时缆车 / 雪道开放情况：</b> <a href="https://www.bormio.eu/en/live-info/impianti-e-piste" target="_blank" rel="noopener">Bormio live lifts & slopes</a></li>
+    <li><b>Bormio 售票处 / 缆车底站地址：</b> <a href="https://www.bormioski.eu/en/ticket-office/" target="_blank" rel="noopener">Via Battaglion Morbegno 25 · 官方地址及开放时间</a></li>
+    <li><b>雪具租赁价格与预约：</b> <a href="https://bormio.bookyourrent.com/en/ski/rental-pricelist.html" target="_blank" rel="noopener">Bormio Ski & Bike</a> · Via Btg. Morbegno 7 · +39 0342 901698</li>
+    <li><b>Bormio Terme 价格：</b> <a href="https://www.bormioterme.it/tariffe/tariffe-benessere-e-thermarium/" target="_blank" rel="noopener">官方 Wellness Area Rates</a> · +39 0342 901325</li>
+    <li><b>冰场费率：</b> <a href="https://www.bormioservizi.it/media/allegati/00/425/ci/files/tariffe-palaghiaccio.pdf" target="_blank" rel="noopener">Palaghiaccio 官方 PDF</a> · +39 0342 910812</li>
+    <li><b>米兰 → Bormio 自驾：</b> <a href="https://www.google.com/maps/dir/Milano/Bormio/" target="_blank" rel="noopener">Google Maps 路线</a></li>
+    <li><b>Bormio 圣诞集市：</b> <a href="https://www.bormio.eu/en/eventi/experience/christmas-markets-in-bormio" target="_blank" rel="noopener">官方活动页</a></li>
+    <li><b>圣诞马槽展：</b> <a href="https://www.bormio.eu/en/eventi/experience/presepi-al-museo" target="_blank" rel="noopener">Museo Civico 官方活动页</a></li>
+   </ul>
+  </div>
+ </section>
+ <section class="section">
+  <div class="warning"><b>出行提醒：</b>12月山区可能有降雪、结冰和路况变化。车辆需准备符合当地冬季规定的冬季轮胎或防滑链；出发前查看实时天气、道路与缆车状态。此页面的开放日期是官方计划，实际运营仍可能因雪况和天气调整。</div>
+ </section>
+</main>
+<footer class="footer"><div class="wrap footgrid"><div><b>Bormio 冬日周末 · 2026</b><br>为7人朋友团体整理的行程。</div><div>最后整理：2026-11-09<br>价格以运营方最终页面 / 现场为准。</div><div><button class="btn outline" onclick="window.print()">打印 / 保存 PDF</button></div></div></footer>
+<script>
+const ids=['people','pass','gear','days','helmet','spa','skate','goggles'];
+function eur(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
+function update(){
+ const v=id=>document.getElementById(id);
+ const n=Math.max(1,Number(v('people').value)||1), pass=Math.max(0,Number(v('pass').value)||0), gear=Math.max(0,Number(v('gear').value)||0), days=Number(v('days').value)||2, helmet=Math.max(0,Number(v('helmet').value)||0), spa=Math.max(0,Number(v('spa').value)||0);
+ const skate=v('skate').checked?10:0, goggles=v('goggles').checked?4*days:0;
+ const passTotal=n*pass, gearTotal=n*gear*days, helmetTotal=n*helmet*days, spaTotal=n*spa, skateTotal=n*skate, gogglesTotal=n*goggles;
+ const total=passTotal+gearTotal+helmetTotal+spaTotal+skateTotal+gogglesTotal;
+ v('total').textContent=eur(total);v('perPerson').textContent='约 '+eur(total/n)+' / 人 · '+n+'人';
+ let parts=['Skipass '+eur(passTotal),'雪具 '+eur(gearTotal),'头盔 '+eur(helmetTotal)];if(spaTotal)parts.push('温泉 '+eur(spaTotal));if(skateTotal)parts.push('冰场 '+eur(skateTotal));if(gogglesTotal)parts.push('滑雪镜 '+eur(gogglesTotal));v('breakdown').textContent=parts.join(' · ');
+}
+ids.forEach(id=>document.getElementById(id).addEventListener('input',update));update();
+const PL=[
+{id:'ski',e:'⛷️',n:'售票处 / 缆车底站',d:'周五 · 周六',c:'#2c6cb0',a:'Via Battaglion Morbegno 25, 23032 Bormio',v:'t',la:46.4621,lo:10.3724,s:'r'},
+{id:'rent',e:'🎿',n:'雪具租赁',d:'周五 08:30',c:'#2c6cb0',a:'Via Battaglion Morbegno 7, 23032 Bormio',v:'t',la:46.4630,lo:10.3738,s:'l'},
+{id:'mkt',e:'🎄',n:'圣诞集市',d:'周五 – 周日',c:'#2f8a67',a:'Giardini di Piazza V Alpini, 23032 Bormio',v:'t',la:46.4689,lo:10.3744,s:'r'},
+{id:'old',e:'🏘️',n:'老城区',d:'周五 / 周日',c:'#2f8a67',a:'Piazza Cavour, 23032 Bormio',v:'t',la:46.4677,lo:10.3774,s:'l'},
+{id:'spa',e:'♨️',n:'Bormio Terme',d:'周日 14:00',c:'#d6402c',a:'Via Stelvio 14, 23032 Bormio',v:'t',la:46.4700,lo:10.3692,s:'r'},
+{id:'ice',e:'⛸️',n:'Bormio 冰场',d:'可选',c:'#b78630',a:'Via Manzoni, 23032 Bormio',v:'t',la:46.4685,lo:10.3605,s:'l'},
+{id:'bor',z:13,e:'📍',n:'Bormio 小镇',d:'滑雪 · 温泉 · 圣诞集市',c:'#14243b',a:'Bormio, Italy',v:'r',la:46.4677,lo:10.3775,s:'r',go:1},
+{id:'sc',z:15,e:'🏔️',n:'Santa Caterina',d:'周六 · 滑雪备选',c:'#2c6cb0',a:'Via Santa Caterina 39, Santa Caterina Valfurva',v:'r',la:46.4101,lo:10.4843,s:'l'},
+{id:'iso',z:14,e:'🌲',n:'Valdidentro / Isolaccia',d:'可选 · 短暂停留',c:'#2f8a67',a:'Isolaccia, Valdidentro',v:'r',la:46.4891,lo:10.2951,s:'r'},
+{id:'hus',z:15,e:'🛷',n:'Husky Village',d:'可选 · 约€160/人',c:'#b78630',a:'Strada Decauville 9, Arnoga, Valdidentro',v:'r',la:46.4623,lo:10.2458,s:'r'},
+{id:'baj',e:'🍷',n:'Osteria la Bajona',d:'小红书推荐 · 晚餐',c:'#8a4f9e',a:'Piazza Cavour 15, 23032 Bormio',u:'Osteria la Bajona, Piazza Cavour 15, Bormio',v:'t',la:46.4681,lo:10.3776,s:'r'},
+{id:'ric',e:'🍽️',n:'Ristorante Da Riccardo',d:'小红书推荐 · 午餐 / 晚餐',c:'#8a4f9e',a:'Via San Lorenzo 2, 23032 Bormio',u:'Da Riccardo, Via San Lorenzo 2, Bormio',v:'t',la:46.4682,lo:10.3728,s:'l'}];
+const VW={t:{la:46.4672,lo:10.3715,k:320},r:{la:46.45,lo:10.40,k:28}};
+let V='m',SEL=null,MAP=null,MK={},LAYER=null,TILE='piste',TFAIL=0,TTRY=0;
+const leaf=document.getElementById('leaf'),svg=document.getElementById('mapSvg'),info=document.getElementById('mapInfo'),list=document.getElementById('placeList'),stage=document.querySelector('.mapstage'),help=document.getElementById('mapHelp'),credit=document.getElementById('mapCredit');
+const HELP=help?help.textContent:'';
+const note=t=>{if(help){help.textContent=t;help.style.color='#8a5a12'}};
+const resetHelp=()=>{if(help){help.textContent=HELP;help.style.color=''}};
+const gmap=q=>'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+const apple=q=>'https://maps.apple.com/?q='+encodeURIComponent(q);
+/* 免费底图：都不需要 API key。注意 tile.openstreetmap.org 会拦截本地文件（无 Referer），所以改用 .de / .fr 镜像 */
+const TILES={
+ piste:{u:'https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',o:{subdomains:'abc',maxZoom:19,attribution:'&copy; OpenStreetMap contributors · tiles openstreetmap.fr'}},
+ street:{u:'https://tile.openstreetmap.de/{z}/{x}/{y}.png',o:{maxZoom:19,attribution:'&copy; OpenStreetMap contributors · tiles openstreetmap.de'}},
+ topo:{u:'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',o:{subdomains:'abc',maxZoom:17,attribution:'&copy; OpenStreetMap contributors, SRTM | &copy; OpenTopoMap (CC-BY-SA)'}},
+ sat:{u:'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',o:{maxZoom:19,attribution:'&copy; Esri, Maxar, Earthstar Geographics'}}
+};
+const TORDER=['piste','street','topo','sat'],TNAME={piste:'雪道',street:'街道',topo:'地形',sat:'卫星'};
+function setBase(k,auto){
+ const T=TILES[k];if(!T||!MAP)return;
+ TILE=k;TFAIL=0;if(!auto)TTRY=0;
+ if(LAYER)MAP.removeLayer(LAYER);
+ LAYER=L.tileLayer(T.u,T.o).addTo(MAP);
+ LAYER.on('tileerror',()=>{
+  if(++TFAIL<6)return;
+  if(TTRY>=TORDER.length-1){note('底图加载失败，可能是网络限制。地点坐标已内置在页面里，可点“小镇示意图 / 周边示意图”看离线地图。');return}
+  TTRY++;
+  const prev=TILE,next=TORDER[(TORDER.indexOf(TILE)+1)%TORDER.length];
+  setBase(next,true);
+  note('“'+TNAME[prev]+'”底图打不开，已自动切换到“'+TNAME[next]+'”底图，可点右上角继续切换。');
+ });
+ if(!auto)resetHelp();
+ document.querySelectorAll('.bm').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+ /* 版权信息从地图角落移到地图下方一行小字（OSM / Esri 的许可要求保留署名） */
+ if(credit)credit.innerHTML='底图与数据：'+T.o.attribution;
+}
+const xy=p=>{const w=VW[V];return[400+(p.lo-w.lo)*76*w.k,260-(p.la-w.la)*111*w.k]};
+function bg(){
+ if(V==='t'){const a=xy(PL[3]),b=xy(PL[2]),c=xy(PL[4]),d=xy(PL[1]);
+  return '<rect width="800" height="520" fill="#eaf1f6"/><path d="M0 0H800V70C600 40 520 110 380 70S120 110 0 60Z" fill="#d8e5ef"/><path d="M0 520V450C160 480 300 440 460 480S700 450 800 490V520Z" fill="#d8e5ef"/><ellipse cx="'+((a[0]+b[0])/2)+'" cy="'+((a[1]+b[1])/2)+'" rx="95" ry="70" fill="#d3ead9" stroke="#2f8a67" stroke-dasharray="6 5"/><text x="'+((a[0]+b[0])/2)+'" y="'+((a[1]+b[1])/2+62)+'" text-anchor="middle" class="lbl" style="font-size:11px">老城步行圈</text><path d="M'+d[0]+' '+d[1]+'L'+a[0]+' '+a[1]+'L'+c[0]+' '+c[1]+'" fill="none" stroke="#c3d2df" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M'+d[0]+' '+d[1]+'L'+a[0]+' '+a[1]+'L'+c[0]+' '+c[1]+'" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>';}
+ const B=xy(PL[6]),S=xy(PL[7]),I=xy(PL[8]),H=xy(PL[9]),rd=(pts)=>{const t='M'+pts.map(q=>q.join(' ')).join('L');return '<path d="'+t+'" fill="none" stroke="#c3d2df" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/><path d="'+t+'" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>'};
+ return '<rect width="800" height="520" fill="#eaf1f6"/><path d="M0 0H800V90L650 60 520 120 380 40 220 100 90 50 0 90Z" fill="#d8e5ef"/><path d="M800 520V380L700 340 600 460 520 400 440 520Z" fill="#d8e5ef"/>'+rd([H,I,B])+rd([B,[(B[0]+S[0])/2-30,(B[1]+S[1])/2+10],S])+'<path d="M'+B[0]+' '+B[1]+'L120 430" stroke="#14243b" stroke-width="2.5" stroke-dasharray="7 6" fill="none"/><text x="120" y="452" class="lbl">← 往米兰 · 自驾约3–3.5小时</text>';
+}
+function draw(){
+ if(V==='m'&&!window.L){V='t';SEL=null;note('Leaflet 没有加载出来（可能是网络限制），已自动切换成离线示意图。')}
+ const G=V==='m';const ps=G?PL.filter(p=>!p.go):PL.filter(p=>p.v===V);svg.style.display=G?'none':'block';leaf.style.display=G?'block':'none';stage.classList.toggle('live',G);if(credit)credit.style.display=G?'':'none';
+ if(!G)svg.innerHTML=bg()+ps.map(p=>{const[x,y]=xy(p),on=SEL===p.id,l=p.s==='l';return '<g class="pin" tabindex="0" role="button" aria-label="'+p.n+'" data-id="'+p.id+'" transform="translate('+x+','+y+')"><circle r="'+(on?22:17)+'" fill="'+p.c+'" stroke="'+(on?'#14243b':'#fff')+'" stroke-width="3"/><text y="'+(on?7:6)+'" text-anchor="middle" font-size="'+(on?21:17)+'">'+p.e+'</text><text x="'+(l?-28:28)+'" y="5" text-anchor="'+(l?'end':'start')+'" class="lbl">'+p.n+'</text></g>'}).join('');
+ list.innerHTML=(G?'<button type="button" class="place'+(SEL?'':' on')+'" data-id="all"><span class="e">🗺️</span><span>全部地点<small>一次看全部位置</small></span></button>':'')+ps.map(p=>'<button type="button" class="place'+(SEL===p.id?' on':'')+'" data-id="'+p.id+'"><span class="e">'+p.e+'</span><span>'+p.n+'<small>'+p.d+'</small></span></button>').join('');
+ document.querySelectorAll('.mt').forEach(b=>b.classList.toggle('on',b.dataset.v===V));
+ const p=PL.find(q=>q.id===SEL);
+ if(G)leafSync(p);
+ info.innerHTML=p?'<div><b>'+p.e+' '+p.n+'</b> <span class="muted">· '+p.d+'</span><br><span class="small">'+p.a+'</span></div><div class="mapactions"><a class="maplink" target="_blank" rel="noopener" href="'+gmap(p.u||p.a)+'">Google 地图 ↗</a><a class="maplink" target="_blank" rel="noopener" href="'+apple(p.u||p.a)+'">Apple 地图 ↗</a></div>':'<div class="muted">点地图上的图标或左侧地点，查看地址和导航。</div><div class="mapactions"><a class="maplink" target="_blank" rel="noopener" href="'+gmap('Bormio, Italy')+'">Google 地图 ↗</a><a class="maplink" target="_blank" rel="noopener" href="'+apple('Bormio, Italy')+'">Apple 地图 ↗</a></div>';
+}
+function popup(q){return '<b>'+q.e+' '+q.n+'</b><br><span class="muted">'+q.d+'</span><br><span class="small">'+q.a+'</span><br><a target="_blank" rel="noopener" href="'+gmap(q.u||q.a)+'">Google 地图 ↗</a> · <a target="_blank" rel="noopener" href="'+apple(q.u||q.a)+'">Apple 地图 ↗</a>'}
+function ensureMap(){
+ if(MAP)return MAP;
+ if(!window.L)return null;
+ MAP=L.map(leaf,{scrollWheelZoom:false,attributionControl:false}).setView([46.4672,10.3715],13);
+ L.control.scale({imperial:false,position:'bottomleft'}).addTo(MAP);
+ setBase(TILE);
+ PL.filter(q=>!q.go).forEach(q=>{
+  MK[q.id]=L.marker([q.la,q.lo],{title:q.n,keyboard:true,icon:L.divIcon({className:'',html:'<div class="mk" style="background:'+q.c+'">'+q.e+'</div>',iconSize:[34,34],iconAnchor:[17,17],popupAnchor:[0,-14]})})
+   .addTo(MAP).bindTooltip(q.n,{direction:'top',offset:[0,-16]}).bindPopup(popup(q))
+   .on('click',()=>{if(SEL!==q.id)pick(q.id)});
+ });
+ leaf.addEventListener('click',()=>MAP.scrollWheelZoom.enable(),{once:true});
+ leaf.addEventListener('mouseleave',()=>MAP.scrollWheelZoom.disable());
+ return MAP;
+}
+function leafSync(p){
+ if(!ensureMap())return;
+ setTimeout(()=>{
+  MAP.invalidateSize();
+  if(p){
+   const m=MK[p.id];
+   MAP.flyTo([p.la,p.lo],p.z&&p.z>=14?p.z:16,{duration:.6});
+   if(m)m.openPopup();
+  }else{
+   MAP.closePopup();
+   MAP.fitBounds(L.latLngBounds(Object.values(MK).map(m=>m.getLatLng())),{padding:[40,40],maxZoom:15});
+  }
+ },80);
+}
+function pick(id){if(id==='all'){SEL=null;draw();return}const p=PL.find(q=>q.id===id);if(p.go&&V!=='m'){V='t';SEL=null}else SEL=id;draw()}
+svg.addEventListener('click',e=>{const g=e.target.closest('.pin');if(g)pick(g.dataset.id)});
+svg.addEventListener('keydown',e=>{const g=e.target.closest('.pin');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();pick(g.dataset.id)}});
+list.addEventListener('click',e=>{const b=e.target.closest('.place');if(b)pick(b.dataset.id)});
+document.querySelectorAll('.mt').forEach(b=>b.onclick=()=>{V=b.dataset.v;SEL=null;draw()});
+document.querySelectorAll('.bm').forEach(b=>b.onclick=()=>setBase(b.dataset.k));
+draw();
+const secs=[...document.querySelectorAll('main section[id]')],navs=[...document.querySelectorAll('.nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)navs.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id))}),{rootMargin:'-30% 0px -60% 0px'});
+secs.forEach(x=>io.observe(x));
+</script>
+</body>
+</html>
