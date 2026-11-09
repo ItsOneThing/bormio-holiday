@@ -100,7 +100,6 @@ main{padding:12px 0 70px}.section{margin:40px 0}
   <div class="section-head"><div><h2>地图：我们要去的地方</h2><p>点地图上的图标或左侧地点查看详情，再点下方的 Google / Apple 地图链接导航（国内打不开 Google 就用 Apple 地图）。</p></div><a class="btn light" href="https://www.google.com/maps/dir/Milano/Bormio/" target="_blank" rel="noopener">米兰 → Bormio 路线 ↗</a></div>
   <div class="maptabs"><button type="button" class="mt on" data-v="m">实时地图</button><button type="button" class="mt" data-v="t">小镇示意图</button><button type="button" class="mt" data-v="r">周边示意图</button></div>
   <div class="mapbox"><div class="placelist" id="placeList"></div><div class="mapstage"><div id="leaf" role="application" aria-label="Bormio 实时地图"></div><svg id="mapSvg" viewBox="0 0 800 520" role="img" aria-label="Bormio 示意地图"></svg><div class="basemaps" id="basemaps" role="group" aria-label="底图切换"><button type="button" class="bm on" data-k="piste">雪道</button><button type="button" class="bm" data-k="street">街道</button><button type="button" class="bm" data-k="topo">地形</button><button type="button" class="bm" data-k="sat">卫星</button></div><div class="mapinfo" id="mapInfo"></div></div></div>
-  <p class="small" style="margin-top:10px" id="mapHelp">底图全部免费、不需要 API key：OpenStreetMap 雪道风格 / 街道 / OpenTopoMap 地形 / Esri 卫星，右上角可切换（默认显示雪道和缆车）。地点坐标已内置在页面里，不联网定位、不调用任何需要付费或注册的接口。如果底图打不开（网络限制），点“小镇示意图”看离线版本。</p>
   <p class="credit" id="mapCredit"></p>
  </section>
  <section class="section" id="budget">
@@ -219,7 +218,6 @@ main{padding:12px 0 70px}.section{margin:40px 0}
   <div class="card span-6"><span class="tag blue">餐厅 · 小红书推荐</span><h3>Osteria la Bajona</h3><p><b>Piazza Cavour 15, 23032 Bormio (SO), Italy</b><br>电话：+39 327 924 7667。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Osteria+la+Bajona%2C+Piazza+Cavour+15%2C+Bormio">导航到 Osteria la Bajona ↗</a></div>
    <div class="card span-6"><span class="tag blue">餐厅 · 小红书推荐</span><h3>Ristorante Da Riccardo</h3><p><b>Via San Lorenzo 2, 23032 Bormio (SO), Italy</b><br>Albergo San Lorenzo 内。</p><a class="maplink" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Da+Riccardo%2C+Via+San+Lorenzo+2%2C+Bormio">导航到 Da Riccardo ↗</a></div>
   </div>
-  <p class="small" style="margin-top:12px">地址核对说明：滑雪售票处、雪具租赁店、温泉、圣诞集市、Santa Caterina 运营方及 Husky Village 地址来自各自官方页面；冰壶场馆地址来自意大利冰上运动联合会登记。Piazza Cavour 是老城区导航中心点，不是单一景点入口。</p>
  </section>
  <section class="section" id="links">
   <div class="section-head"><div><h2>预订、确认与实用链接</h2><p>建议出发前一周、出发前一天各核对一次。</p></div></div>
@@ -237,11 +235,7 @@ main{padding:12px 0 70px}.section{margin:40px 0}
    </ul>
   </div>
  </section>
- <section class="section">
-  <div class="warning"><b>出行提醒：</b>12月山区可能有降雪、结冰和路况变化。车辆需准备符合当地冬季规定的冬季轮胎或防滑链；出发前查看实时天气、道路与缆车状态。此页面的开放日期是官方计划，实际运营仍可能因雪况和天气调整。</div>
- </section>
 </main>
-<footer class="footer"><div class="wrap footgrid"><div><b>Bormio 冬日周末 · 2026</b><br>为7人朋友团体整理的行程。</div><div>最后整理：2026-11-09<br>价格以运营方最终页面 / 现场为准。</div><div><button class="btn outline" onclick="window.print()">打印 / 保存 PDF</button></div></div></footer>
 <script>
 const ids=['people','pass','gear','days','helmet','spa','skate','goggles'];
 function eur(n){return new Intl.NumberFormat('it-IT',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n)}
